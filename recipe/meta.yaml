@@ -1,5 +1,4 @@
-{% set version = "0.7" %}
-
+{% set version = '0.9' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,35 +7,31 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: testit_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/testit_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
-
-
-  sha256: 03332889bffe8b69d36e696e3a6a1a29713cdcbccf1efced6cddbf061fb41a1f
+    - {{ cran_mirror }}/src/contrib/testit_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
+  sha256: 9cf6b3df9b2c700e4e7dcbd5b8cb64fabefe674e1f40346ccaf39fe7feda5e55
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 1000
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('testit')"  # [not win]
+    - $R -e "library('testit')"           # [not win]
     - "\"%R%\" -e \"library('testit')\""  # [win]
-
-
 
 about:
   home: https://github.com/yihui/testit
@@ -44,9 +39,28 @@ about:
   summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R
     packages.
   license_family: GPL
-
-
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - croth1
+
+# Package: testit
+# Type: Package
+# Title: A Simple Package for Testing R Packages
+# Version: 0.9
+# Authors@R: c( person("Yihui", "Xie", role = c("aut", "cre"), email = "xie@yihui.name", comment = c(ORCID = "0000-0003-0645-5666")),  person("Steven", "Mortimer", role = "ctb", email="reportmort@gmail.com") )
+# Description: Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
+# License: GPL
+# URL: https://github.com/yihui/testit
+# BugReports: https://github.com/yihui/testit/issues
+# Suggests: rstudioapi
+# RoxygenNote: 6.1.1
+# Encoding: UTF-8
+# NeedsCompilation: no
+# Packaged: 2018-12-05 17:42:23 UTC; yihui
+# Author: Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>), Steven Mortimer [ctb]
+# Maintainer: Yihui Xie <xie@yihui.name>
+# Repository: CRAN
+# Date/Publication: 2018-12-05 18:10:03 UTC
