@@ -1,4 +1,4 @@
-{% set version = '0.9' %}
+{% set version = "0.10" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/testit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
-  sha256: 9cf6b3df9b2c700e4e7dcbd5b8cb64fabefe674e1f40346ccaf39fe7feda5e55
+  sha256: b0026da5ae409db1bec2604e55d6f653469a07339645a520af445787cbc6144a
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
