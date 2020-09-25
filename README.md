@@ -5,7 +5,7 @@ Home: https://github.com/yihui/testit
 
 Package license: GPL
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
 

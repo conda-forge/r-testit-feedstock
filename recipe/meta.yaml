@@ -1,4 +1,4 @@
-{% set version = "0.11" %}
+{% set version = "0.12" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/testit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
-  sha256: 12fb24f0c7b032ae0d146d22161efc676ef4cdf604b81f6345e8d9dfd125388e
+  sha256: 9acdf912f0e7a68a5b6a7946d5ebb0c2007b3d6cd2e39075eddae2b586354e89
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -36,10 +36,9 @@ test:
 about:
   home: https://github.com/yihui/testit
   license: GPL
-  summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R
-    packages.
+  summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
   license_family: GPL
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
