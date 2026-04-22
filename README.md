@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-testit-feedst
 
 Home: https://github.com/yihui/testit
 
-Package license: GPL
+Package license: MIT
 
 Summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
 
