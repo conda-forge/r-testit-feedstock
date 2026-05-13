@@ -1,15 +1,15 @@
-{% set version = "0.18" %}
+{% set version = "1.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-testit
-  version: "{{ version|replace("-", "_") }}"
+  version: {{ version|replace("-", "_") }}
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/testit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
-  sha256: ab21b849cc5808991c160026acf0b348e45db617df23eac9c8d618afc339b508
+  sha256: 1cd0d799ba29fc56c85e90171ddd4f28f4efbe78baae2ae4d2669376e6167e52
 
 build:
   number: 0
