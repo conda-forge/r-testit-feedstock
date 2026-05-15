@@ -7,7 +7,7 @@ Home: https://github.com/yihui/testit
 
 Package license: MIT
 
-Summary: Provides two convenience functions assert() and test_pkg() to facilitate testing R packages.
+Summary: A minimal, dependency-free testing framework for R packages. Write tests as simple R expressions that return TRUE, using assert() for assertions (with informative error messages on failure), has_error() / has_warning() / has_message() for testing conditions, and test_pkg() to run all tests with full access to internal (non-exported) package functions. Snapshot testing via Markdown files is also supported.
 
 Current build status
 ====================
