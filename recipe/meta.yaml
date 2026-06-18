@@ -1,15 +1,15 @@
-{% set version = "1.0" %}
+{% set version = "1.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-testit
-  version: "{{ version|replace("-", "_") }}"
+  version: {{ version|replace("-", "_") }}
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/testit_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/testit/testit_{{ version }}.tar.gz
-  sha256: 1cd0d799ba29fc56c85e90171ddd4f28f4efbe78baae2ae4d2669376e6167e52
+  sha256: 152156ca35867c05dae3201f8486c0a5f100767d988a050c4ea0a5d445aafa31
 
 build:
   number: 0
@@ -39,11 +39,8 @@ test:
 about:
   home: https://github.com/yihui/testit
   license: MIT
-  summary: A minimal, dependency-free testing framework for R packages. Write tests as simple
-    R expressions that return TRUE, using assert() for assertions (with informative
-    error messages on failure), has_error() / has_warning() / has_message() for testing
-    conditions, and test_pkg() to run all tests with full access to internal (non-exported)
-    package functions. Snapshot testing via Markdown files is also supported.
+  summary: A minimal, dependency-free testing framework for R packages. Write tests as simple R expressions that return TRUE, using assert() for assertions (with informative error messages on failure), has_error() / has_warning() / has_message() for testing conditions, and test_pkg() to run all tests with full access 
+    to internal (non-exported) package functions. Snapshot testing via Markdown files is also supported.
   license_family: MIT
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
